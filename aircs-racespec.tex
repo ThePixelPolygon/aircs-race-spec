@@ -1,0 +1,73 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usepackage{tgheros}
+\usepackage{mathtools, listings}
+
+\lstset{
+basicstyle=\small\ttfamily,
+columns=flexible,
+breaklines=true
+}
+
+\renewcommand*\familydefault{\sfdefault}
+\newcommand{\defterm}[2]{\textbf{#1} #2}
+
+\title{The \textbf{{\color{red}Air}CS} Race Specification}
+\author{The AirCS Foundation}
+
+\begin{document}
+\maketitle
+The AirCS race has become one of the biggest simultaneous-player events on the bits \& Bytes Minecraft 1.x servers. Starting with the second edition of AirCS Race, the AirCS Foundation has installed new tracking systems in all AirCS and SQTR stations to automate the race (henceforth referred to as RaceCS or the RaceCS system). In this document, we will explain how the system works, and outline everything that you need to know to make sure your new station is ready for the next AirCS race.
+
+\section{The System}
+The RaceCS system includes two components: the in-game score system, and the web interface. These components work together to provide the smoothest possible racing experience. They are designed to keep track of where all players have been, and to inform everybody, all racers and spectators, of each player's progress in the race.
+
+\subsection{In-Game Score System}
+The in-game system is designed to ensure that the RaceCS system is not dependent on any additional plugins to run at all (for example, plugins are not available when the world is hosted via LAN). Each player's score is displayed on the sidebar, and the system makes use of scoreboard tags to ensure no station is counted twice. It also makes sure that only racers are tracked. In addition to this, notifications are sent to all players whenever any player reaches a unique station.
+
+\subsection{Web Interface}
+The web interface provides a more detailed view of the race in progress. In addition to providing score updates for those who are not able to view them in-game, it also keeps a history of all notifications sent from when the page was first opened. Users may also opt in to receive push notifications on their devices so they do not have to keep the page open at all times.
+
+Apart from the notifications, the web interface also keeps track of exactly what stations everyone has visited, and what stations remain. This also serves useful to players, as the system will inform them of what stations they may have missed, so they may create more informed strategies to complete the race. 
+
+\section{Installation}
+We now require that for any station to be included in the AirCS race, they must comply with the AirCS race specification. The station must account for all possible methods of entry, and should be thorougly tested to ensure correct operation.
+
+\textbf{NOTE: } From this point forward, the acronym \textbf{NA} will refer to the shorthand code of your station.
+\subsection{Standard Lines}
+This section is not finished yet. Instructions for this are coming soon in some other commit.
+\subsection{SQTR Bullet Boat System}
+This section is not finished yet. Instructions for this are coming soon in some other commit.
+\subsection{Deregistration}
+Due to the limitations of the Minecraft scoreboard, any new station created that integrates with the RaceCS system must have their scoreboard tags removed one at a time. Beneath the 0th floor of AirCS central station, there is a long chain of command blocks designed to do this. 
+\begin{enumerate}
+    \item With a WorldEdit wand equipped, select the last two command blocks and move them one block forward.
+    \item In the gap created between the command blocks, place a chained, always active command block. The command should be set to the following:
+    \begin{lstlisting}
+        /execute @e[type=Armor_Stand,name=acsr] ~ ~ ~ scoreboard players tag @p remove NA
+    \end{lstlisting}
+\end{enumerate}
+
+\section{Glossary of Terms}
+\begin{itemize}
+    \item \defterm{Orphaned Station}{A station that is only accessible by exactly one branch of one metro service (also known as a dead-end station). Some examples include (but are not limited to)}
+    \begin{itemize}
+        \item Central $\rightarrow$ Whale City Central $\rightarrow$ Whale City Commercial
+        \item Central $\rightarrow$ Long Island $\rightarrow$ UWGK
+    \end{itemize}
+    \item \defterm{Doubly Orphaned Station}{An orphaned station that is connected to an orphaned station (see ``orphaned station'')}
+\end{itemize}
+\section{Contributors}
+Developers:
+\begin{itemize}
+    \item JPlexer
+    \item The Pixel Polygon
+    \item Victor Tran
+\end{itemize}
+Authors:
+\begin{itemize}
+    \item The Pixel Polygon
+\end{itemize}
+\end{document}
