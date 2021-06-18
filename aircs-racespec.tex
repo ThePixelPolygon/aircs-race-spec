@@ -75,17 +75,19 @@ To save time, you may consider taking some shortcuts when installing RaceCS chec
 
 \medskip
 
-\textbf{Orphaned stations only require a single checkpoint.} If your target station is an orphaned station, you may place a single checkpoint at the orphaned station. In the case of a doubly-orphaned station, you also do not require checkpoints at both ends of the line.
-
-\medskip
-
 \textbf{Any lines that lead back to AirCS Central Station only require one checkpoint.} AirCS Central Station (referred to in-game as ``Station Air \textbf{Central Hub}'') does not count for score at any point in the game. Therefore, if the destination has a line leading back to central, only the destination requires a checkpoint.
 
 \medskip
 
 \textbf{More often than not, SQTR stations will require checkpoints at both ends of a line.} This is because due to the way that SQTR operates, one may traverse a single line in two directions. Moreover, a majority of SQTR destinations are also shared with AirCS, which counts as a single point regardless of the system used.
+
+\subsubsection{For Line Planners: A Note on Doubly Orphaned Stations}
+While doubly orphaned stations are technically feasible and may still be fully compliant with the AirCS Race Specification, \textbf{do note that construction of doubly orphaned stations is highly discouraged.} Doubly orphaned stations using standard lines may be prone to balance issues, in particular with the collision rule. However, doubly-orphaned stations using the SQTR Bullet Boat or AirCS 255 should raise no concern, since collisions are not detected on those systems.
+
+Should a doubly-orphaned station be constructed, the line's builder will be fully responsible for AirCS Race Specification compliance. This includes installation of all necessary command blocks. However, The AirCS Foundation will still add station information into the RaceCS database.
+
 \subsection{A note on orbis. Q and AirCS 255}
-For the time being, it is against the rules to use orbis. Q by AirCS and AirCS 255. However, when the AirCS 255 system opens, its speed will be reduced significantly for game balance. More details TBD.
+For the time being, it is against the rules to use orbis. Q by AirCS. However, when the AirCS 255 system opens, its speed will be reduced significantly for game balance. This may be enabled via a custom game rule. More details TBD.
 
 \subsection{Deregistration}
 Due to the limitations of the Minecraft scoreboard, any new station created that integrates with the RaceCS system must have their scoreboard tags removed one at a time. Beneath the 0th floor of AirCS central station, there is a long chain of command blocks designed to do this. 
